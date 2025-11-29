@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 session_start();
 
@@ -22,3 +23,29 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     exit;
 }
 ?>
+=======
+<?php
+session_start();
+
+if (isset($_POST['username']) && isset($_POST['password'])) {
+
+    $user = $_POST['username'];
+    $pass = $_POST['password'];
+
+    if ($user == 'admin' && $pass == '123') {
+
+        $_SESSION['logged_user'] = $user;
+
+        header('Location: welcome.php');
+        exit;
+    } else {
+        header('Location: login.html?error=1');
+        exit;
+    }
+
+} else {
+    header('Location: login.html');
+    exit;
+}
+?>
+>>>>>>> 45a0336affba483ed8dd0b034eaf479101f59d8d
